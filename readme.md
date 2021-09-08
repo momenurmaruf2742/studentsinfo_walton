@@ -11,7 +11,7 @@ make a new environment(recommended) and run...
 - Run python manage.py runserver
 - Navigate to http://127.0.0.1:8000/ in your browser
 
-##for admin panale you should use 
+## for admin panale you should use 
 The default admin is 
 - username: walton
 - password: walton
