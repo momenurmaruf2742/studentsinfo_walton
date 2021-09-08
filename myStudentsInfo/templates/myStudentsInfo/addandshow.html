@@ -1,0 +1,65 @@
+{% extends 'myStudentsInfo/base.html' %}
+{% block content %}
+<div class="row">
+
+    <div class="col-sm-4">
+        <h4 class="text-center alert alert-info"> Add New Students </h4>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-success" value="add">
+
+        </form>
+    </div>
+    <div class="col-sm-8">
+        <h4 class="text-center alert alert-info"> Show Students Information </h4>
+        {% if students %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Sex</th>
+                  <th scope="col">Father Name</th>
+                  <th scope="col">Mother Name</th>
+                  <th scope="col">Last Education</th>
+                    <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for students in students %}
+                <tr>
+                  <th scope="row">{{students.S_id}}</th>
+                  <td>{{students.name}}</td>
+                    <td>{{students.age}}</td>
+                   <td>{{students.sex}}</td>
+                    <td>{{students.father_name}}</td>
+                    <td>{{students.mother_name}}</td>
+                    <td>{{students.last_education}}</td>
+                    <td>
+                        <a href="{% url 'update' students.id %}" class="btn btn-warning">Edit</a>
+                        <form action="{% url 'delete' students.id %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-danger" value="Delete">
+                        </form>
+
+                    </td>
+                </tr>
+              {% endfor %}
+
+              </tbody>
+
+        </table>
+
+
+        {% else %}
+        <h4 class="text-center alert alert-warning"> No Students In The Record </h4>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock content %}
