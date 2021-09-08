@@ -10,6 +10,7 @@ make a new environment(recommended) and run...
 - Run python manage.py migrate
 - Run python manage.py runserver
 - Navigate to http://127.0.0.1:8000/ in your browser
+- admin panale will this url http://127.0.0.1:8000/admin
 
 ## for admin panale you should use 
 The default admin is 
